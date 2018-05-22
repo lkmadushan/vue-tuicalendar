@@ -73,6 +73,10 @@ import { VueTuicalendar } from '@lkmadushan/vue-tuicalendar'
       this.$refs.calendar.fireMethod('clear');
       this.$refs.calendar.fireMethod('getElement');
       this.$refs.calendar.fireMethod('changeView', 'month', true);
+      
+      this.$refs.calendar.registerEvent('beforeDeleteSchedule', (event) {
+        // do stuff here
+      })
     }
   }
 ...

@@ -53,13 +53,15 @@ export default {
     },
 
     registerEvents () {
-      events.forEach(event => this.registerEvent(event))
+      events.forEach(event => {
+        this.registerEvent(event, (...args) => {
+          this.$emit(kebabCase(event), ...args)
+        })
+      })
     },
 
-    registerEvent (event) {
-      this.calendar.on(event, (...args) =>
-        this.$emit(kebabCase(event), ...args)
-      )
+    registerEvent (event, callback) {
+      this.calendar.on(event, callback)
     },
 
     fireMethod (method, ...args) {
