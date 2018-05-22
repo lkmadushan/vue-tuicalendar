@@ -7,14 +7,14 @@
 ## Installation
 
 ```bash
-npm install --save @lkmadushan/vue-tuicalendar
+npm install --save tui-calendar @lkmadushan/vue-tuicalendar
 ```
 
 ## Usage
 
 ### Bundler (Webpack, Rollup)
 
-```js
+```html
 import Vue from 'vue'
 import VueTuicalendar from '@lkmadushan/vue-tuicalendar'
 // You need a specific loader for CSS files like https://github.com/webpack/css-loader
@@ -24,11 +24,62 @@ Vue.use(VueTuicalendar)
 
 // or
 
-import Vue from 'vue'
 import { VueTuicalendar } from '@lkmadushan/vue-tuicalendar'
-// You need a specific loader for CSS files like https://github.com/webpack/css-loader
-import 'tui-calendar/dist/tui-calendar.min.css'
 ```
+
+```html
+<template>
+  <vue-tuicalendar
+    :ref="calendar"
+    :schedules="schedules"
+    @after-render-schedule="handler"
+    @before-render-schedule="handler"
+    @click-schedule="handler"
+  >
+  </vue-tuicalendar>
+</template>
+
+...
+<script>
+...
+  data() {
+    return {
+      schedules: [
+        {
+          id: "1",
+          calendarId: "1",
+          title: "A schedule",
+          category: "time",
+          dueDateClass: "",
+          start: "2018-05-22T22:30:00+09:00",
+          end: "2018-05-23T02:30:00+09:00"
+        },
+        {
+          id: "2",
+          calendarId: "1",
+          title: "Another schedule",
+          category: "time",
+          dueDateClass: "",
+          start: "2018-05-23T17:30:00+09:00",
+          end: "2018-05-24T17:31:00+09:00",
+          isReadOnly: true
+        }
+      ]
+    }
+  }
+  
+  methods: {
+    mounted() {
+      this.$refs.fireMethod('clear');
+      this.$refs.fireMethod('getElement');
+      this.$refs.fireMethod('changeView', 'month', true);
+    }
+  }
+...
+</script>
+```
+
+More options can be found at https://nhnent.github.io/tui.calendar/latest/Calendar.html
 
 ### Browser
 
