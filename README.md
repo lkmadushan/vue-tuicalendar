@@ -14,7 +14,7 @@ npm install --save tui-calendar @lkmadushan/vue-tuicalendar
 
 ### Bundler (Webpack, Rollup)
 
-```html
+```js
 import Vue from 'vue'
 import VueTuicalendar from '@lkmadushan/vue-tuicalendar'
 // You need a specific loader for CSS files like https://github.com/webpack/css-loader
@@ -70,9 +70,9 @@ import { VueTuicalendar } from '@lkmadushan/vue-tuicalendar'
   
   methods: {
     mounted() {
-      this.$refs.fireMethod('clear');
-      this.$refs.fireMethod('getElement');
-      this.$refs.fireMethod('changeView', 'month', true);
+      this.$refs.calendar.fireMethod('clear');
+      this.$refs.calendar.fireMethod('getElement');
+      this.$refs.calendar.fireMethod('changeView', 'month', true);
     }
   }
 ...
