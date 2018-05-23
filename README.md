@@ -1,8 +1,8 @@
-# VueTuicalendar
+# Vue TOAST UI Calendar
 
-[![npm](https://img.shields.io/npm/v/vue-tuicalendar.svg)](https://www.npmjs.com/package/vue-tuicalendar) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![npm](https://img.shields.io/npm/v/vue-tuicalendar.svg)](https://www.npmjs.com/package/@lkmadushan/vue-tuicalendar) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-> A Vue.js wrapper for TOAST UI Calendar
+> A Vue.js wrapper for [TOAST UI Calendar](http://ui.toast.com/tui-calendar)
 
 ## Installation
 
@@ -11,6 +11,10 @@ npm install --save tui-calendar @lkmadushan/vue-tuicalendar
 ```
 
 ## Usage
+
+### Example 
+
+Try out this [Code Sandbox](https://codesandbox.io/s/0wm308qol)
 
 ### Bundler (Webpack, Rollup)
 
@@ -30,7 +34,8 @@ import { VueTuicalendar } from '@lkmadushan/vue-tuicalendar'
 ```html
 <template>
   <vue-tuicalendar
-    :ref="calendar"
+    ref="calendar"
+    :options="options"
     :schedules="schedules"
     @after-render-schedule="handler"
     @before-render-schedule="handler"
